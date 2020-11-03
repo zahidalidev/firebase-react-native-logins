@@ -14,6 +14,7 @@ import {
   View,
   Text,
   StatusBar,
+  Button,
 } from 'react-native';
 
 import {
@@ -61,19 +62,44 @@ function LoginApp() {
 
 class App extends Component {
 
-  componentDidMount = () => {
+  createUser = () => {
     auth()
-      .signInAnonymously()
+      .createUserWithEmailAndPassword('jane.doe2@example.com', 'SuperSecretPassword!')
       .then(() => {
-        console.log('User signed in anonymously');
+        console.log('User account created & signed in!');
       })
       .catch(error => {
-        if (error.code === 'auth/operation-not-allowed') {
-          console.log('Enable anonymous in your firebase console.');
+        if (error.code === 'auth/email-already-in-use') {
+          console.log('That email address is already in use!');
+        }
+
+        if (error.code === 'auth/invalid-email') {
+          console.log('That email address is invalid!');
         }
 
         console.error(error);
       });
+  }
+
+  logoff = () => {
+    auth()
+      .signOut()
+      .then(() => console.log('User signed out!'));
+  }
+
+  componentDidMount = () => {
+    // auth()
+    //   .signInAnonymously()
+    //   .then(() => {
+    //     console.log('User signed in anonymously');
+    //   })
+    //   .catch(error => {
+    //     if (error.code === 'auth/operation-not-allowed') {
+    //       console.log('Enable anonymous in your firebase console.');
+    //     }
+
+    //     console.error(error);
+    //   });
   }
 
   render() {
@@ -86,6 +112,8 @@ class App extends Component {
             style={styles.scrollView}>
             <View style={{ padding: 100 }}>
               <LoginApp />
+              <Button title="Create User" onPress={this.createUser} />
+              <Button title="Logoff" onPress={this.logoff} />
             </View>
 
           </ScrollView>
