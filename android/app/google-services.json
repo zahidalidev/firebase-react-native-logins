@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "921428764618",
+    "firebase_url": "https://firbaseandroidtest123.firebaseio.com",
+    "project_id": "firbaseandroidtest123",
+    "storage_bucket": "firbaseandroidtest123.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:921428764618:android:9afa2b6d9c1ebe6be95133",
+        "android_client_info": {
+          "package_name": "com.firebasereactnative"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "921428764618-8i7i0b3obo9qldashokba0hfm886mv2e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdq5COuqcGmgR4djY-MD_l5r-7KBvyFp8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "921428764618-8i7i0b3obo9qldashokba0hfm886mv2e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
