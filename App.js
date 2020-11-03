@@ -62,9 +62,9 @@ function LoginApp() {
 
 class App extends Component {
 
-  createUser = () => {
+  loginUser = () => {
     auth()
-      .createUserWithEmailAndPassword('jane.doe2@example.com', 'SuperSecretPassword!')
+      .signInWithEmailAndPassword('jane.doe2@example.com', 'SuperSecretPassword!')
       .then(() => {
         console.log('User account created & signed in!');
       })
@@ -80,6 +80,24 @@ class App extends Component {
         console.error(error);
       });
   }
+  // createUser = () => {
+  //   auth()
+  //     .createUserWithEmailAndPassword('jane.doe2@example.com', 'SuperSecretPassword!')
+  //     .then(() => {
+  //       console.log('User account created & signed in!');
+  //     })
+  //     .catch(error => {
+  //       if (error.code === 'auth/email-already-in-use') {
+  //         console.log('That email address is already in use!');
+  //       }
+
+  //       if (error.code === 'auth/invalid-email') {
+  //         console.log('That email address is invalid!');
+  //       }
+
+  //       console.error(error);
+  //     });
+  // }
 
   logoff = () => {
     auth()
@@ -112,7 +130,8 @@ class App extends Component {
             style={styles.scrollView}>
             <View style={{ padding: 100 }}>
               <LoginApp />
-              <Button title="Create User" onPress={this.createUser} />
+              {/* <Button title="Create User" onPress={this.createUser} /> */}
+              <Button title="Login User" onPress={this.loginUser} />
               <Button title="Logoff" onPress={this.logoff} />
             </View>
 
